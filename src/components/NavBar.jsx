@@ -15,7 +15,7 @@ const NavBar = () => {
           <>
           <div className="navbar-start">
               <Link to={'/user'} className="ml-4">
-                <button className="btn">
+                <button className="btn text-[12px] sm:text-base">
                   All Data
                 </button>
               </Link>
@@ -23,7 +23,7 @@ const NavBar = () => {
           
           <div className="navbar-center">
           <Link to={"/language"}>
-            <div className="flex gap-3 text-xl font-semibold">Code Tutorial</div>
+            <div className="text-[16px] flex gap-3 sm:text-xl font-semibold">Code Tutorial</div>
           </Link>
           </div>
           <div className="navbar-end">
@@ -31,7 +31,7 @@ const NavBar = () => {
           <ul className="text-sm sm:text-base md:hidden menu menu-horizontal mr-3 z-[100]">
                   <li>
                     <details>
-                      <summary>Menu</summary>
+                      <summary className="text-[12px] sm:text-base">Menu</summary>
                       <ul className="p-2">
                         <li><Link to={'/senddata'}>Send Data</Link></li>
                         <li><Link to={'/profile'}>My Profile</Link></li>

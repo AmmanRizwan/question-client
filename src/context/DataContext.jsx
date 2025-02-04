@@ -53,6 +53,8 @@ const DataContextProvider = (props) => {
           setLoginData((prev) => ({...prev, email: "", password: ""}));
           window.location.replace('/');
         }
+        const data = await response.json();
+        console.log(data);
       }
       catch (err) {
         console.log(err.message);

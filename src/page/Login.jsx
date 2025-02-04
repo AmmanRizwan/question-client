@@ -48,7 +48,7 @@ const Login = () => {
                     d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                 </svg>
         
-        <input type={hidePassword} className="grow" placeholder="Enter Email Address" value={loginData.email} onChange={(e) => setLoginData((prev) => ({...prev, email:e.target.value}))} />
+        <input type={"text"} className="grow" placeholder="Enter Email Address" value={loginData.email} onChange={(e) => setLoginData((prev) => ({...prev, email:e.target.value}))} />
         
           </label>
             <label className={`relative text-sm input input-bordered ${loginData.password_style} flex items-center gap-2`}>
@@ -62,7 +62,7 @@ const Login = () => {
                   d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
                   clipRule="evenodd" />
               </svg>
-              <input type="password" className="grow" placeholder="Enter Password" value={loginData.password} onChange={(e) => setLoginData((prev) => ({...prev, password:e.target.value}))} onKeyPress={(e) => e.key === "Enter" && loginSubmit()}/>
+              <input type={hidePassword} className="grow" placeholder="Enter Password" value={loginData.password} onChange={(e) => setLoginData((prev) => ({...prev, password:e.target.value}))} onKeyPress={(e) => e.key === "Enter" && loginSubmit()}/>
 
               <div className="absolute right-5 cursor-pointer">
                 { hidePassword === "password" ? <FaEye onClick={() => setHidePassword("text")} size={18} /> : <FaEyeSlash onClick={() => setHidePassword("password")} size={18} />  }

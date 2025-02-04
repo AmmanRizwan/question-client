@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DataContext } from "../context/DataContext";
+import { BASE_GLOBAL_URL } from "../data/jsonData";
 
 const Profile = () => {
     
@@ -7,7 +8,7 @@ const Profile = () => {
 
     const getProfile = async () => {
         try {
-            const response = await fetch("http://localhost:4000/api/users/profile", {
+            const response = await fetch(`${BASE_GLOBAL_URL}users/profile`, {
                 credentials: "include",
                 method: "GET",
                 headers: {"Content-Type": "application/json"},

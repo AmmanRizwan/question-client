@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { BASE_GLOBAL_URL } from '../data/jsonData';
 import { useLoading } from "../page/LoadingContext";
 

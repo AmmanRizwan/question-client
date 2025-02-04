@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { BASE_GLOBAL_URL } from '../data/jsonData';
+import { useLoading } from "../page/LoadingContext";
 
 export const DataContext = createContext(null);
 
@@ -9,6 +10,8 @@ const DataContextProvider = (props) => {
   const [popUp, setPopUp] = useState(false);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
+
+  const { setDataLoading } = useLoading();
 
 
   const handleSubmit = async (e) => {
@@ -105,6 +108,21 @@ const DataContextProvider = (props) => {
         console.log(err.message);
       }
     }
+
+    const firstFetch = async () => {
+      try {
+        const response = await fetch('https://question-server-fpyn.onrender.com/');
+        const data = await response.json();
+        setDataLoading(false);
+      }
+      catch (err) {
+        console.log(err);
+      }
+    }
+
+    useEffect(() => {
+      firstFetch();
+    }, [])
     
     const contextValue = {
     popUp, loading, message, formData,

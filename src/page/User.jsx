@@ -3,8 +3,6 @@ import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 import { FiAlertTriangle } from "react-icons/fi";
 import { FaTrash } from "react-icons/fa";
 import { BASE_GLOBAL_URL } from "../data/jsonData";
-import { DataContext } from "../context/DataContext";
-import { useLoading } from "./LoadingContext";
 
 const User = () => {
   const [data, setData] = useState(null);
@@ -12,14 +10,11 @@ const User = () => {
   const [message, setMessage] = useState('');
   const [selectValue, setSelectValue] = useState('all');
 
-  const { setDataLoading } = useContext(useLoading);
-
   useEffect(()  => {
     fetch(`${BASE_GLOBAL_URL}data/`, { method: "GET", credentials: "include" })
     .then((response) => response.json())
     .then((data) => setData(data))
     .catch((err) => console.log("Error Fetching Data", err));
-    setDataLoading(false);
   })
 
   const handleDelete = async (keyId) => {

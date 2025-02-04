@@ -48,7 +48,7 @@ const Login = () => {
                     d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
                 </svg>
         
-        <input type="text" className="grow" placeholder="Enter Email Address" value={loginData.email} onChange={(e) => setLoginData((prev) => ({...prev, email:e.target.value}))} />
+        <input type={hidePassword} className="grow" placeholder="Enter Email Address" value={loginData.email} onChange={(e) => setLoginData((prev) => ({...prev, email:e.target.value}))} />
         
           </label>
             <label className={`relative text-sm input input-bordered ${loginData.password_style} flex items-center gap-2`}>

@@ -111,7 +111,7 @@ const DataContextProvider = (props) => {
 
     const firstFetch = async () => {
       try {
-        const response = await fetch('https://question-server-fpyn.onrender.com/');
+        const response = await fetch('https://question-server-fpyn.onrender.com');
         const data = await response.json();
         setDataLoading(false);
       }

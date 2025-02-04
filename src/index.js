@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import DataContextProvider from './context/DataContext';
+import { LoadingProvider } from './page/LoadingContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <LoadingProvider>
     <DataContextProvider>
       <App />
     </DataContextProvider>
+    </LoadingProvider>
   </React.StrictMode>
 );
 

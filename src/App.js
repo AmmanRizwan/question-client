@@ -13,8 +13,13 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Profile from "./page/Profile";
 import SelectLang from "./page/SelectLang";
 import SQL from "./page/SQL";
+import Loading from "./page/Loading";
+import { useLoading } from "./page/LoadingContext";
 
 function App() {
+
+  const { dataLoading } = useLoading();
+
   const ShowCustomNav = () => {
     const location = useLocation();
     const setNavBar = location.pathname === "/";
@@ -23,11 +28,14 @@ function App() {
 
   const isAuth = localStorage.getItem('userAuth');
 
+  if (dataLoading) {
+    return <Loading />
+  }
+
   return (
     <div>
     <BrowserRouter>
     <ShowCustomNav />
-    
     <Routes>
 
       {/* UnAuthorized Route */}
@@ -42,6 +50,7 @@ function App() {
       )}
 
 
+
     {/* Authorized Route */}
     <Route element={<ProtectedRoute />}>
       <Route path="/" element={<Navigate to="/language" />}/>
@@ -53,6 +62,7 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/language" element={<SelectLang />} />
       <Route path="/sql" element={<SQL />} />
+      <Route path="/loadingdata" element={<Loading />} />
     </Route>
 
       <Route path="*" element={<NotFound />} />

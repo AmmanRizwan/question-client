@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { CgMathMinus, CgMathPlus } from "react-icons/cg";
 import { FiAlertTriangle } from "react-icons/fi";
 import { FaTrash } from "react-icons/fa";
+import { BASE_GLOBAL_URL } from "../data/jsonData";
+import { DataContext } from "../context/DataContext";
+import { useLoading } from "./LoadingContext";
 
 const User = () => {
   const [data, setData] = useState(null);
@@ -9,16 +12,19 @@ const User = () => {
   const [message, setMessage] = useState('');
   const [selectValue, setSelectValue] = useState('all');
 
+  const { setDataLoading } = useContext(useLoading);
+
   useEffect(()  => {
-    fetch('http://localhost:4000/api/data/', { method: "GET", credentials: "include" })
+    fetch(`${BASE_GLOBAL_URL}data/`, { method: "GET", credentials: "include" })
     .then((response) => response.json())
     .then((data) => setData(data))
     .catch((err) => console.log("Error Fetching Data", err));
+    setDataLoading(false);
   })
 
   const handleDelete = async (keyId) => {
     try {
-      const response = await fetch(`http://localhost:4000/api/data/${keyId}`,
+      const response = await fetch(`${BASE_GLOBAL_URL}data/${keyId}`,
         {
           credentials: "include",
           method: "DELETE"

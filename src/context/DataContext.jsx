@@ -1,5 +1,4 @@
-import React, { createContext, useState } from "react";
-import { BASE_LOCAL_URL } from '../data/jsonData';
+import React, { createContext, useContext, useState } from "react";
 import { BASE_GLOBAL_URL } from '../data/jsonData';
 
 export const DataContext = createContext(null);
@@ -11,10 +10,11 @@ const DataContextProvider = (props) => {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch(`${BASE_LOCAL_URL}data`,
+      const res = await fetch(`${BASE_GLOBAL_URL}data`,
         {
           credentials: "include",
           method: "POST",
@@ -23,7 +23,7 @@ const DataContextProvider = (props) => {
         });
         const result = await res.json();
         setMessage(result.message);
-        setFormData({question: "", code: ""});
+        setFormData({question: "", code: "", language: ""});
         setPopUp(true);
         setLoading(false);
     }
@@ -66,7 +66,8 @@ const DataContextProvider = (props) => {
           credentials: "include",
           method: "POST",
           headers: {"Content-Type": "application/json"},
-          body: JSON.stringify({name: signUpData.name,
+          body: JSON.stringify({
+            name: signUpData.name,
             email: signUpData.email,
             password: signUpData.password
           })
@@ -113,7 +114,7 @@ const DataContextProvider = (props) => {
     loginSubmit,
     signUpData, setSignUpData,
     LogoutUser,
-    signUpSubmit
+    signUpSubmit,
    }
 
   return (

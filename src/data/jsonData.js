@@ -119,6 +119,7 @@ export const question_bank = [
       "Write a SQL query to Delete a Database",
       "Write a SQL query to Create a Table",
       "Write a SQL query to Delete a Table",
+      "Write a SQL query to Update a Table Name",
     ]
   },
   {
@@ -126,10 +127,15 @@ export const question_bank = [
     title: "SQL CRUD Operation Question",
     language: "SQL",
     question: [
-      "Write a SQL query to Create a Data in Table",
-      "Write a SQL query to Read a Data in Table",
-      "Write a SQL query to Update a Data in Table",
-      "Write a SQL query to Delete a Data in Table"
+      "Write a SQL query to Create 10 Record of student with (id, first_name, age, last_name, gender, dob, grade)  in Table",
+      "Write a SQL query to Read a Record in Table",
+      "Write a SQL query to Update a Record in Table",
+      "Write a SQL query to Delete a Record in Table",
+      "Write a SQL query to select one column from the Table",
+      "Write a SQL query to select all Record where student is > 18",
+      "Write a SQL query to delete one Record by using id",
+      "Write a SQL query to update one Record of grade to pass a person",
+      "Write a SQL query to insert one new Record in Table",
     ]
   },
   {

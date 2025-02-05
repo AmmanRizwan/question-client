@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { DataContext } from "../context/DataContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
+
 const Login = () => {
 
   const { loginData, setLoginData, loginSubmit } = useContext(DataContext);
@@ -28,7 +29,7 @@ const Login = () => {
     else if (loginData.email.slice(-4) === ".com" && loginData.email.search("@") !== -1) {
       setLoginData((prev) => ({...prev, email_style: "input-success"}));
     }
-  }, [loginData.email, loginData.password])
+  }, [loginData.email, loginData.password]);
 
   return (
     <div className="min-h-screen flex justify-center items-center select-none">
